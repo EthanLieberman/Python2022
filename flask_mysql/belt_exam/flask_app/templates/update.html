@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Update Car</title>
+</head>
+
+<body>
+    <div class="d-flex justify-content-between align-items-center ms-5 me-5 mt-3">
+        <h1>Mod Car Sale</h1>
+
+        <div>
+            <a class="me-5 btn btn-secondary" href="/dashboard">Dashboard</a>
+            <a class="btn btn-secondary" href="/logout">Logout</a>
+        </div>
+
+    </div>
+
+    <div>
+
+        <form class="d-flex justify-content-center gap-5 m-5" action="/update_car" method="post">
+            <div class="d-flex flex-column">
+                {% with messages = get_flashed_messages(category_filter=['car']) %}
+                    {% if messages %}
+                        {% for message in messages %}
+                        <p style="color: red;">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+
+            <input type="hidden" name="id" value="{{car.id}}">
+            <div class="d-flex flex-column" style="width: 300px;">
+                <label for="price">Price</label>
+                <input type="number" name="price" id="price" min="1" value="{{car.price}}">
+
+                <label for="model">Model</label>
+                <input type="text" name="model" id="model" value="{{car.model}}">
+
+                <label for="make">Make</label>
+                <input type="text" name="make" id="make" value="{{car.make}}">
+
+                <label for="year">Year</label>
+                <input type="number" name="year" id="year" value="{{car.year}}">
+
+                <label for="decription">description</label>
+                <textarea name="description" id="description" cols="30" rows="5">{{car.description}}</textarea>
+
+
+                <input class="mt-4 btn btn-secondary" type="submit" value="Update">
+            </div>
+
+
+
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

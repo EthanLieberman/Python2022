@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+
+<body>
+    <h1>All Users</h1>
+
+    {% for row in my_users %}
+    <p>ID: {{row.id}}</p>
+    <p>First Name: {{row.first_name}}</p>
+    <p>Last Name: {{row.last_name}}</p>
+    <p>Occupation: {{row.email}}</p>
+    <a href="/show/{{row.id}}">Show</a>
+    <a href="/edit/{{row.id}}">Edit</a>
+    <a href="/delete/{{row.id}}">Delete</a>
+    
+    <hr>
+    {% endfor %}
+
+    <a href="/add">Add new user</a>
+
+
+
+
+</body>
+
+</html>
